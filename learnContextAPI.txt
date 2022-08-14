@@ -1,0 +1,68 @@
+
+import React, {createContext, useState} from react
+
+export const MovieContext = createContext()
+
+export function MovieProvider(props) {
+	const [movies, setMovies] = useState([
+		name: 'blabla',
+		price: '15$'
+])
+
+	return (
+		<MovieContext.Provider value={[movies, setMovies]}>
+		{props.children}
+		</MovieContext.Provider>
+	)
+
+}
+
+===============================================================================
+
+				in App.js
+
+import {MovieProvider} from "./MovieContext" ==> file name is MovieContext.js
+
+function App() {
+
+	return (
+		<MovieProvider>
+			<div>
+				<Header />
+				<MovieList />
+			</div>
+		</MovieProvider>
+	)
+
+}
+
+================================================================================
+
+				then in any component
+
+import React, {useContext} from react
+import {MovieContext} from "./MovieContext"
+
+function Header() {
+
+	const [movies, setMovies] = useContext(MovieContext)
+
+	return (
+		<h1>You have {movies.length} movies</h1>	
+	)
+}
+
+
+
+
+*NOTE*
+
+see my-app in users/sary for more info
+
+
+
+
+remember: you can't just give movies to a component and use movies.text bec it gives you the whole array of movies instead loop through it.
+
+
+

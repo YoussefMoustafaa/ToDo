@@ -1,0 +1,7 @@
+npm run build ==> to deploy the project
+
+npm i json-server
+
+_ in package.json in debug we write  "server" : "json-server --watch db.json --port 5000"
+
+npm run server
